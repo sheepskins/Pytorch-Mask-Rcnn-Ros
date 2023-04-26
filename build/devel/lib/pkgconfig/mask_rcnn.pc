@@ -1,0 +1,8 @@
+prefix=/home/mitch/catkin_ws/src/mask_rcnn/build/devel
+
+Name: mask_rcnn
+Description: Description of mask_rcnn
+Version: 0.0.1
+Cflags: -I/home/mitch/catkin_ws/src/mask_rcnn/build/devel/include
+Libs: -L${prefix}/lib 
+Requires: 
