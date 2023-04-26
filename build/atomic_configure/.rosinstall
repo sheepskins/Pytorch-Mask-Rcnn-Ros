@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mitch/catkin_ws/src/mask_rcnn/build/devel/setup.sh
