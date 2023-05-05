@@ -26,7 +26,7 @@ def _build_result_msg(masks, labels):
         mask.encoding = "mono8"
         mask.is_bigendian = False
         mask.step = mask.width
-        mask.data = (masks[i][:, :] * 255).tobytes()
+        mask.data = (masks[i][:, :]).tobytes()
         result_msg.masks.append(mask)
     return result_msg
 
