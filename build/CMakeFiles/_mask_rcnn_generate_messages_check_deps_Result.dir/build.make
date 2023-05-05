@@ -67,7 +67,7 @@ include CMakeFiles/_mask_rcnn_generate_messages_check_deps_Result.dir/compiler_d
 include CMakeFiles/_mask_rcnn_generate_messages_check_deps_Result.dir/progress.make
 
 CMakeFiles/_mask_rcnn_generate_messages_check_deps_Result:
-	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py mask_rcnn /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg sensor_msgs/RegionOfInterest:sensor_msgs/Image:std_msgs/Header
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py mask_rcnn /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg std_msgs/Header:sensor_msgs/Image
 
 _mask_rcnn_generate_messages_check_deps_Result: CMakeFiles/_mask_rcnn_generate_messages_check_deps_Result
 _mask_rcnn_generate_messages_check_deps_Result: CMakeFiles/_mask_rcnn_generate_messages_check_deps_Result.dir/build.make

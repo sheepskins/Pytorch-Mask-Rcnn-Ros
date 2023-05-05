@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
-services_str = ""
+services_str = "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
 pkg_name = "mask_rcnn"
 dependencies_str = "sensor_msgs;std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

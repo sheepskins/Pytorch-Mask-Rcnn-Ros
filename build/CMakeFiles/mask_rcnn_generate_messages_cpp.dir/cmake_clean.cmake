@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mask_rcnn_generate_messages_cpp"
+  "devel/include/mask_rcnn/Detection.h"
   "devel/include/mask_rcnn/Result.h"
 )
 
