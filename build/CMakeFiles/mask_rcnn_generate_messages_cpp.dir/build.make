@@ -71,9 +71,9 @@ CMakeFiles/mask_rcnn_generate_messages_cpp: devel/include/mask_rcnn/Detection.h
 
 devel/include/mask_rcnn/Detection.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 devel/include/mask_rcnn/Detection.h: /home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv
-devel/include/mask_rcnn/Detection.h: /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg
 devel/include/mask_rcnn/Detection.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 devel/include/mask_rcnn/Detection.h: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
+devel/include/mask_rcnn/Detection.h: /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg
 devel/include/mask_rcnn/Detection.h: /opt/ros/noetic/share/gencpp/msg.h.template
 devel/include/mask_rcnn/Detection.h: /opt/ros/noetic/share/gencpp/srv.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mitch/catkin_ws/src/mask_rcnn/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from mask_rcnn/Detection.srv"
