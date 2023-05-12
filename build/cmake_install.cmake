@@ -138,6 +138,10 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mask_rcnn/srv" TYPE FILE FILES "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mask_rcnn/cmake" TYPE FILE FILES "/home/mitch/catkin_ws/src/mask_rcnn/build/catkin_generated/installspace/mask_rcnn-msg-paths.cmake")
 endif()
 

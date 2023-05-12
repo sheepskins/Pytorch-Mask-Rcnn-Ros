@@ -8,5 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/mitch/catkin_ws/src/mask_rcnn/build/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/mitch/catkin_ws/src/mask_rcnn/build/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/mitch/catkin_ws/src/mask_rcnn/build/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/mitch/catkin_ws/src/mask_rcnn/build'
+export PYTHONPATH="/home/mitch/catkin_ws/src/mask_rcnn/build/devel/lib/python3/dist-packages:$PYTHONPATH"
 export ROS_PACKAGE_PATH="/home/mitch/catkin_ws/src/mask_rcnn:$ROS_PACKAGE_PATH"

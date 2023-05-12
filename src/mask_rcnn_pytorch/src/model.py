@@ -19,7 +19,7 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-def infer(image):
+def infer(image, gen_image):
     #image = image.convert('RGB')
     # keep a copy of the original image for OpenCV functions and applying masks
     orig_image = image.copy()
@@ -28,6 +28,8 @@ def infer(image):
     # add a batch dimension
     image = image.unsqueeze(0).to(device)
     masks, boxes, labels = get_outputs(image, model, 0.95)
-    result = draw_segmentation_map(orig_image, masks, boxes, labels)
-    
-    return masks, labels, result
+    if gen_image: 
+        result = draw_segmentation_map(orig_image, masks, boxes, labels)
+    else: 
+        result = image
+    return masks, boxes, labels, result

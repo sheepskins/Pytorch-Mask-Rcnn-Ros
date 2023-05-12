@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "mask_rcnn: 1 messages, 0 services")
+message(STATUS "mask_rcnn: 1 messages, 1 services")
 
 set(MSG_I_FLAGS "-Imask_rcnn:/home/mitch/catkin_ws/src/mask_rcnn/msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -19,7 +19,12 @@ add_custom_target(mask_rcnn_generate_messages ALL)
 
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
 add_custom_target(_mask_rcnn_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mask_rcnn" "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" "sensor_msgs/RegionOfInterest:sensor_msgs/Image:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mask_rcnn" "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" "sensor_msgs/Image:std_msgs/Header"
+)
+
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
+add_custom_target(_mask_rcnn_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mask_rcnn" "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" "mask_rcnn/Result:sensor_msgs/Image:std_msgs/Header"
 )
 
 #
@@ -31,11 +36,17 @@ add_custom_target(_mask_rcnn_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(mask_rcnn
   "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mask_rcnn
 )
 
 ### Generating Services
+_generate_srv_cpp(mask_rcnn
+  "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
+  "${MSG_I_FLAGS}"
+  "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mask_rcnn
+)
 
 ### Generating Module File
 _generate_module_cpp(mask_rcnn
@@ -51,6 +62,8 @@ add_dependencies(mask_rcnn_generate_messages mask_rcnn_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
 add_dependencies(mask_rcnn_generate_messages_cpp _mask_rcnn_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
+add_dependencies(mask_rcnn_generate_messages_cpp _mask_rcnn_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mask_rcnn_gencpp)
@@ -64,11 +77,17 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mask_rcnn_generate_messages_cpp)
 _generate_msg_eus(mask_rcnn
   "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mask_rcnn
 )
 
 ### Generating Services
+_generate_srv_eus(mask_rcnn
+  "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
+  "${MSG_I_FLAGS}"
+  "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mask_rcnn
+)
 
 ### Generating Module File
 _generate_module_eus(mask_rcnn
@@ -84,6 +103,8 @@ add_dependencies(mask_rcnn_generate_messages mask_rcnn_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
 add_dependencies(mask_rcnn_generate_messages_eus _mask_rcnn_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
+add_dependencies(mask_rcnn_generate_messages_eus _mask_rcnn_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mask_rcnn_geneus)
@@ -97,11 +118,17 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mask_rcnn_generate_messages_eus)
 _generate_msg_lisp(mask_rcnn
   "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mask_rcnn
 )
 
 ### Generating Services
+_generate_srv_lisp(mask_rcnn
+  "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
+  "${MSG_I_FLAGS}"
+  "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mask_rcnn
+)
 
 ### Generating Module File
 _generate_module_lisp(mask_rcnn
@@ -117,6 +144,8 @@ add_dependencies(mask_rcnn_generate_messages mask_rcnn_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
 add_dependencies(mask_rcnn_generate_messages_lisp _mask_rcnn_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
+add_dependencies(mask_rcnn_generate_messages_lisp _mask_rcnn_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mask_rcnn_genlisp)
@@ -130,11 +159,17 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mask_rcnn_generate_messages_lisp)
 _generate_msg_nodejs(mask_rcnn
   "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mask_rcnn
 )
 
 ### Generating Services
+_generate_srv_nodejs(mask_rcnn
+  "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
+  "${MSG_I_FLAGS}"
+  "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mask_rcnn
+)
 
 ### Generating Module File
 _generate_module_nodejs(mask_rcnn
@@ -150,6 +185,8 @@ add_dependencies(mask_rcnn_generate_messages mask_rcnn_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
 add_dependencies(mask_rcnn_generate_messages_nodejs _mask_rcnn_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
+add_dependencies(mask_rcnn_generate_messages_nodejs _mask_rcnn_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mask_rcnn_gennodejs)
@@ -163,11 +200,17 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mask_rcnn_generate_messages_nodejs)
 _generate_msg_py(mask_rcnn
   "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/RegionOfInterest.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mask_rcnn
 )
 
 ### Generating Services
+_generate_srv_py(mask_rcnn
+  "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv"
+  "${MSG_I_FLAGS}"
+  "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg;/opt/ros/noetic/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mask_rcnn
+)
 
 ### Generating Module File
 _generate_module_py(mask_rcnn
@@ -182,6 +225,8 @@ add_dependencies(mask_rcnn_generate_messages mask_rcnn_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg" NAME_WE)
+add_dependencies(mask_rcnn_generate_messages_py _mask_rcnn_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv" NAME_WE)
 add_dependencies(mask_rcnn_generate_messages_py _mask_rcnn_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
