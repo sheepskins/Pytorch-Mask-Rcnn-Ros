@@ -3,6 +3,7 @@
 import rospy
 from mask_rcnn.srv import Detection, DetectionResponse
 from sensor_msgs.msg import Image
+from sensor_msgs.msg import RegionOfInterest
 from mask_rcnn.msg import Result
 from mask_rcnn_pytorch.src.model import infer
 from cv_bridge import CvBridge
@@ -10,7 +11,7 @@ import numpy as np
 
 bridge = CvBridge()
 
-def _build_result_msg(masks, labels):
+def _build_result_msg(boxes,masks, labels):
     result_msg = Result()
     result_msg.header.stamp = rospy.Time.now()
     for i in range(len(masks)):
@@ -28,13 +29,21 @@ def _build_result_msg(masks, labels):
         mask.step = mask.width
         mask.data = (masks[i][:, :]).tobytes()
         result_msg.masks.append(mask)
+        box = RegionOfInterest()
+            
+        box.x_offset = boxes[i][0][0]
+        box.y_offset = boxes[i][0][1]
+        box.height = boxes[i][1][1] - boxes[i][0][1]
+        box.width = boxes[i][1][0] - boxes[i][0][0]
+        result_msg.boxes.append(box)
+
     return result_msg
 
 
 def process(image):
     np_image = bridge.imgmsg_to_cv2(image.image, 'rgb8')
-    masks, labels, result = infer(np_image, gen_image=False)
-    response = _build_result_msg(masks, labels)
+    masks, boxes, labels, result = infer(np_image, gen_image=False)
+    response = _build_result_msg(boxes, masks, labels)
     return DetectionResponse(response); 
 
 def main():

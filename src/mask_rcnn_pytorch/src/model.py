@@ -32,4 +32,4 @@ def infer(image, gen_image):
         result = draw_segmentation_map(orig_image, masks, boxes, labels)
     else: 
         result = image
-    return masks, labels, result
+    return masks, boxes, labels, result
