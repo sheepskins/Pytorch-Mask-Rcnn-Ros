@@ -8,7 +8,7 @@ from cv_bridge import CvBridge
 import numpy as np
 
 vis_pub = rospy.Publisher('mask_rcnn_vis', Image, queue_size=1)
-box_pub = rospy.Publisher('mask_rcnn_detections', Result, queue_size=1)
+
 bridge = CvBridge()
 
 def _build_result_msg(msg, masks, labels):
@@ -35,15 +35,14 @@ def _build_result_msg(msg, masks, labels):
 def process(image):
     np_image = bridge.imgmsg_to_cv2(image, 'rgb8')
     
-    masks, labels, result = infer(np_image)
+    masks, boxes, labels, result = infer(np_image, True)
 
     detection_ros = bridge.cv2_to_imgmsg(result, encoding='rgb8')
 
-    box_pub.publish(_build_result_msg(image, masks, labels))
     vis_pub.publish(detection_ros)
 
 def main():
-    im_sub = rospy.Subscriber('/camera/image_raw', Image, callback=process, queue_size=1)
+    im_sub = rospy.Subscriber('/camera/color/image_raw', Image, callback=process, queue_size=1)
     rospy.init_node('mask_rcnn')
     rate = rospy.Rate(1)
     rospy.spin()

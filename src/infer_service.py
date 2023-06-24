@@ -11,6 +11,8 @@ import numpy as np
 
 bridge = CvBridge()
 
+box_pub = rospy.Publisher('mask_rcnn_detections', Image, queue_size=5)
+
 def _build_result_msg(boxes,masks, labels):
     result_msg = Result()
     result_msg.header.stamp = rospy.Time.now()
@@ -44,7 +46,8 @@ def process(image):
     np_image = bridge.imgmsg_to_cv2(image.image, 'rgb8')
     masks, boxes, labels, result = infer(np_image, gen_image=False)
     response = _build_result_msg(boxes, masks, labels)
-    return DetectionResponse(response); 
+    # box_pub.publish(bridge.cv2_to_imgmsg(result, encoding='rgb8'))
+    return DetectionResponse(response)
 
 def main():
     rospy.init_node('mask_rcnn_service')

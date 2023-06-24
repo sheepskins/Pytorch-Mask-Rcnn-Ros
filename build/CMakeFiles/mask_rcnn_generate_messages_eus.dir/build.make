@@ -76,16 +76,18 @@ devel/share/roseus/ros/mask_rcnn/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.
 
 devel/share/roseus/ros/mask_rcnn/msg/Result.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 devel/share/roseus/ros/mask_rcnn/msg/Result.l: /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg
-devel/share/roseus/ros/mask_rcnn/msg/Result.l: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
+devel/share/roseus/ros/mask_rcnn/msg/Result.l: /opt/ros/noetic/share/sensor_msgs/msg/RegionOfInterest.msg
 devel/share/roseus/ros/mask_rcnn/msg/Result.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+devel/share/roseus/ros/mask_rcnn/msg/Result.l: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mitch/catkin_ws/src/mask_rcnn/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from mask_rcnn/Result.msg"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg -Imask_rcnn:/home/mitch/catkin_ws/src/mask_rcnn/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p mask_rcnn -o /home/mitch/catkin_ws/src/mask_rcnn/build/devel/share/roseus/ros/mask_rcnn/msg
 
 devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv
-devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg
+devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /opt/ros/noetic/share/sensor_msgs/msg/RegionOfInterest.msg
 devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /opt/ros/noetic/share/sensor_msgs/msg/Image.msg
 devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+devel/share/roseus/ros/mask_rcnn/srv/Detection.l: /home/mitch/catkin_ws/src/mask_rcnn/msg/Result.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mitch/catkin_ws/src/mask_rcnn/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from mask_rcnn/Detection.srv"
 	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/mitch/catkin_ws/src/mask_rcnn/srv/Detection.srv -Imask_rcnn:/home/mitch/catkin_ws/src/mask_rcnn/msg -Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p mask_rcnn -o /home/mitch/catkin_ws/src/mask_rcnn/build/devel/share/roseus/ros/mask_rcnn/srv
 
